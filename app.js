@@ -1,37 +1,15 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const goodsRouter = require('./routes/goods');
-const cartsRouter = require('./routes/carts');
+const goodsRouter = require('./routes/goods.js');
+const cartsRouter = require('./routes/carts.js');
 const connect = require("./schemas");
 connect();
 
-app.use(express.json());
+app.use(express.json()); //req 객체 안에 있는 body를 사용하기 위해서는 이 코드로 미들웨어 등록해야지만 사용 가능
 app.use("/api", [goodsRouter, cartsRouter]);
+
 app.listen(port, () => {
   console.log(port, '포트로 서버가 열렸어요!');
 });
-
-//------
-app.post("/", (req, res) => {
-  console.log(req.body);
-  res.send("기본 URI에 Post 메소드 정상 실행됨")
-})
-app.get("/", (req, res) => {
-    console.log(req.query);
-    const obj = {
-      "key01" : "value01",
-      "key02" : "value02",
-    };
-    res.json(obj);
-})
-app.get("/:id", (req, res) => {
-  console.log(req.params);
-  res.send(':id URI에 정상적으로 반환되었습니다');
-})
-// app.get('/', (req, res) => {
-//   res.send('Hello World!');
-// });
-
-
 

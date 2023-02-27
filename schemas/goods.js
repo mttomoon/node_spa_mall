@@ -23,3 +23,4 @@ const goodsSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Goods", goodsSchema);
+//"Goods"가 콜렉션명이 된다.

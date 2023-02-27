@@ -3,6 +3,7 @@ const router = express.Router();
 const Cart = require("../schemas/cart.js");
 const Goods = require("../schemas/goods.js");
 
+
 router.get("/carts", async(req, res) => {
   const carts = await Cart.find({});
   const goodsIds = carts.map((cart) => {return cart.goodsId;});
