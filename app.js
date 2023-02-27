@@ -35,6 +35,3 @@ app.get("/:id", (req, res) => {
 
 
 
-
-
-
