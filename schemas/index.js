@@ -3,7 +3,7 @@ mongoose.set('strictQuery', false);
 
 const connect = () => {
   mongoose
-    .connect("mongodb://localhost:27017/spa_mall")
+    .connect("mongodb+srv://sparta:sparta@cluster0.s8xsqwz.mongodb.net/?retryWrites=true&w=majority")
     .catch(err => console.log(err));
 };
 
